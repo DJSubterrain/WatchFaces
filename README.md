@@ -28,3 +28,7 @@ The outer metal ring (the "case") is now part of the optional frames and is off 
 ## 0.2.2
 
 The metal case ring and window frames are removed from all faces (no switch). The dial runs to the screen edge.
+
+## 0.2.3
+
+Hour markers and the minute track moved out to the screen edge now that the metal ring is gone.

@@ -10,8 +10,8 @@ android {
         applicationId = "com.djsubterrain.watchface.midnightsatin"
         minSdk = 33
         targetSdk = 34
-        versionCode = 4
-        versionName = "0.2.2"
+        versionCode = 5
+        versionName = "0.2.3"
     }
 
     // One fixed key for all the faces, so each new build installs over the last one.
