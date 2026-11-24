@@ -8,22 +8,41 @@
         displayName="show_seconds_label"
         screenReaderText="show_seconds_label"
         defaultValue="TRUE" />
+    <BooleanConfiguration id="show_frames"
+        displayName="show_frames_label"
+        screenReaderText="show_frames_label"
+        defaultValue="FALSE" />
   </UserConfigurations>
 
   <Scene backgroundColor="#ff000000">
 
-    <!-- Dial ring, bezel, indices, window frames and the open movement (gears, bridges, jewels). -->
-    <Group name="dial" x="0" y="0" width="450" height="450">
-      <Variant mode="AMBIENT" target="alpha" value="64" />
-      <PartImage x="0" y="0" width="450" height="450">
-        <Image resource="bg" />
-      </PartImage>
-    </Group>
+    <!-- Dial ring, bezel, indices, the open movement (gears, bridges, jewels). -->
+    <!-- Metal window frames and aperture ring are optional (Customize > Metal frames); off by default. -->
+    <BooleanConfiguration id="show_frames">
+      <BooleanOption id="TRUE">
+        <Group name="dial" x="0" y="0" width="450" height="450">
+          <Variant mode="AMBIENT" target="alpha" value="64" />
+          <PartImage x="0" y="0" width="450" height="450">
+            <Image resource="bg_frames" />
+          </PartImage>
+        </Group>
+      </BooleanOption>
+      <BooleanOption id="FALSE">
+        <Group name="dial" x="0" y="0" width="450" height="450">
+          <Variant mode="AMBIENT" target="alpha" value="64" />
+          <PartImage x="0" y="0" width="450" height="450">
+            <Image resource="bg" />
+          </PartImage>
+        </Group>
+      </BooleanOption>
+    </BooleanConfiguration>
 
-    <!-- Balance wheel: swings back and forth four times a second, like a 28,800 vph movement. -->
+    <!-- Balance wheel: swings back and forth once every second, in step with the seconds hand. -->
     <Group name="balance" x="191" y="109" width="82" height="82" pivotX="0.5" pivotY="0.5">
       <Variant mode="AMBIENT" target="alpha" value="0" />
-      <Transform target="angle" value="110 * sin(rad([SECOND_MILLISECOND] * 1.44))" />
+      <Transform target="angle" value="[SECOND] % 2 == 0 ? -105 : 105">
+        <Animation duration="0.4" interpolation="EASE_IN_OUT" />
+      </Transform>
       <PartImage x="0" y="0" width="82" height="82">
         <Image resource="balance" />
       </PartImage>

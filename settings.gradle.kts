@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "WatchFaces"
-include(":midnightsatin", ":bluesatin", ":skeletonblack")
+include(":midnightsatin", ":bluesatin", ":skeletonblack", ":openheart")

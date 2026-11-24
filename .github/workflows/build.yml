@@ -33,6 +33,7 @@ jobs:
           cp midnightsatin/build/outputs/apk/debug/midnightsatin-debug.apk "dist/Midnight_Satin_${VERSION}.apk"
           cp bluesatin/build/outputs/apk/debug/bluesatin-debug.apk "dist/Blue_Satin_${VERSION}.apk"
           cp skeletonblack/build/outputs/apk/debug/skeletonblack-debug.apk "dist/Skeleton_Black_${VERSION}.apk"
+          cp openheart/build/outputs/apk/debug/openheart-debug.apk "dist/Open_Heart_${VERSION}.apk"
           echo "name=Watch_Faces_${VERSION}" >> "$GITHUB_OUTPUT"
 
       - uses: actions/upload-artifact@v4

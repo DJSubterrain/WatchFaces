@@ -2,4 +2,5 @@
 <resources>
     <string name="watch_face_name">Blue Satin</string>
     <string name="show_seconds_label">Seconds hand</string>
+    <string name="show_frames_label">Metal frames</string>
 </resources>
