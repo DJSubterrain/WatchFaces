@@ -10,8 +10,8 @@ android {
         applicationId = "com.djsubterrain.watchface.bluesatin"
         minSdk = 33
         targetSdk = 34
-        versionCode = 3
-        versionName = "0.2.1"
+        versionCode = 4
+        versionName = "0.2.2"
     }
 
     // One fixed key for all the faces, so each new build installs over the last one.
