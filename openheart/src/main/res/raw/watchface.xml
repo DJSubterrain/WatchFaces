@@ -12,7 +12,56 @@
 
   <Scene backgroundColor="#ff000000">
 
-    <!-- Dial, indices, the large open-heart movement window at twelve. -->
+    <!-- Movement plate, seen through the window in the dial. -->
+    <Group name="plate" x="0" y="0" width="450" height="450">
+      <Variant mode="AMBIENT" target="alpha" value="0" />
+      <PartImage x="145" y="60" width="160" height="160">
+        <Image resource="plate" />
+      </PartImage>
+    </Group>
+
+    <!-- Gears: each steps round once per second; their edges run off beneath the dial. -->
+    <Group name="gear0" x="135" y="135" width="90" height="90" pivotX="0.5" pivotY="0.5">
+      <Variant mode="AMBIENT" target="alpha" value="0" />
+      <Transform target="angle" value="[SECOND] * 6" />
+      <PartImage x="0" y="0" width="90" height="90">
+        <Image resource="gear0" />
+      </PartImage>
+    </Group>
+    <Group name="gear1" x="233" y="147" width="78" height="78" pivotX="0.5" pivotY="0.5">
+      <Variant mode="AMBIENT" target="alpha" value="0" />
+      <Transform target="angle" value="0 - [SECOND] * 6" />
+      <PartImage x="0" y="0" width="78" height="78">
+        <Image resource="gear1" />
+      </PartImage>
+    </Group>
+    <Group name="gear2" x="155" y="65" width="62" height="62" pivotX="0.5" pivotY="0.5">
+      <Variant mode="AMBIENT" target="alpha" value="0" />
+      <Transform target="angle" value="[SECOND] * 12" />
+      <PartImage x="0" y="0" width="62" height="62">
+        <Image resource="gear2" />
+      </PartImage>
+    </Group>
+    <Group name="gear3" x="249" y="69" width="54" height="54" pivotX="0.5" pivotY="0.5">
+      <Variant mode="AMBIENT" target="alpha" value="0" />
+      <Transform target="angle" value="0 - [SECOND] * 12" />
+      <PartImage x="0" y="0" width="54" height="54">
+        <Image resource="gear3" />
+      </PartImage>
+    </Group>
+
+    <!-- Balance wheel: swings back and forth once every second, in step with the seconds hand. -->
+    <Group name="balance" x="181.5" y="89.5" width="101" height="101" pivotX="0.5" pivotY="0.5">
+      <Variant mode="AMBIENT" target="alpha" value="0" />
+      <Transform target="angle" value="[SECOND] % 2 == 0 ? -105 : 105">
+        <Animation duration="0.4" interpolation="EASE_IN_OUT" />
+      </Transform>
+      <PartImage x="0" y="0" width="101" height="101">
+        <Image resource="balance" />
+      </PartImage>
+    </Group>
+
+    <!-- Dial with a round window cut out so the movement shows through. -->
     <Group name="dial" x="0" y="0" width="450" height="450">
       <Variant mode="AMBIENT" target="alpha" value="64" />
       <PartImage x="0" y="0" width="450" height="450">
@@ -20,21 +69,11 @@
       </PartImage>
     </Group>
 
-    <!-- Balance wheel: swings back and forth once every second, in step with the seconds hand. -->
-    <Group name="balance" x="180.8" y="86.8" width="102.4" height="102.4" pivotX="0.5" pivotY="0.5">
-      <Variant mode="AMBIENT" target="alpha" value="0" />
-      <Transform target="angle" value="[SECOND] % 2 == 0 ? -105 : 105">
-        <Animation duration="0.4" interpolation="EASE_IN_OUT" />
-      </Transform>
-      <PartImage x="0" y="0" width="102.4" height="102.4">
-        <Image resource="balance" />
-      </PartImage>
-    </Group>
-
-    <!-- Bridge that sits over the balance wheel. -->
-    <PartImage x="150" y="65" width="150" height="150">
+    <!-- Bridge that holds the balance wheel. -->
+    <PartImage x="145" y="60" width="160" height="160">
       <Image resource="top" />
     </PartImage>
+
 
     <!-- Heart rate (left window) and battery level (right window). -->
     <Group name="values" x="0" y="0" width="450" height="450">

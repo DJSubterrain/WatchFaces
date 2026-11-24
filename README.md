@@ -40,3 +40,10 @@ Satin dial scaled up ~6% inside the round screen so the brighter satin reaches t
 ## 0.2.5
 
 Hour markers and minute track moved right out to the visible edge (just inside the Spigen Thin Fit 360 case rim).
+
+## 0.3.0
+
+- The movement is now a real window into the watch: the dial has a round cut-out and the plate, gears and balance wheel sit underneath it, so the gear edges run off beneath the dial instead of sitting neatly inside a circle.
+- The balance wheel is the largest wheel and swings back and forth once a second; every other gear turns a step each second (no back-and-forth), with whole turns per minute so there is no backward sweep at the minute wrap.
+- Skeleton Black and Open Heart get a fixed balance cock (bridge) over the balance wheel.
+- Untested on a real watch at the time of writing; no pallet fork is drawn.
