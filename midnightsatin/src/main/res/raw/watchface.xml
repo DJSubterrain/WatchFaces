@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Midnight Satin: black satin dial, silver hands, red seconds hand.
+     Reference size 450x450; Watch Face Format scales it to the watch's screen. -->
+<WatchFace width="450" height="450">
+
+  <UserConfigurations>
+    <BooleanConfiguration id="show_seconds"
+        displayName="show_seconds_label"
+        screenReaderText="show_seconds_label"
+        defaultValue="TRUE" />
+  </UserConfigurations>
+
+  <Scene backgroundColor="#ff000000">
+
+    <!-- Dial, bezel, indices, window frames and the small open-heart movement at six. -->
+    <Group name="dial" x="0" y="0" width="450" height="450">
+      <Variant mode="AMBIENT" target="alpha" value="64" />
+      <PartImage x="0" y="0" width="450" height="450">
+        <Image resource="bg" />
+      </PartImage>
+    </Group>
+
+    <!-- Balance wheel: swings back and forth four times a second, like a 28,800 vph movement. -->
+    <Group name="balance" x="224" y="290" width="39" height="39" pivotX="0.5" pivotY="0.5">
+      <Variant mode="AMBIENT" target="alpha" value="0" />
+      <Transform target="angle" value="110 * sin(rad([SECOND_MILLISECOND] * 1.44))" />
+      <PartImage x="0" y="0" width="39" height="39">
+        <Image resource="balance" />
+      </PartImage>
+    </Group>
+
+    <!-- Heart rate (left window) and battery level (right window). -->
+    <Group name="values" x="0" y="0" width="450" height="450">
+      <Variant mode="AMBIENT" target="alpha" value="130" />
+      <PartText x="104" y="206" width="44" height="38">
+        <Text align="CENTER">
+          <Font family="SYNC_TO_DEVICE" size="23" color="#fff5f6f8">
+            <Template>%d<Parameter expression="round([HEART_RATE])" /></Template>
+          </Font>
+        </Text>
+      </PartText>
+      <PartText x="308" y="206" width="44" height="38">
+        <Text align="CENTER">
+          <Font family="SYNC_TO_DEVICE" size="23" color="#fff5f6f8">
+            <Template>%d<Parameter expression="[BATTERY_PERCENT]" /></Template>
+          </Font>
+        </Text>
+      </PartText>
+    </Group>
+
+    <AnalogClock x="0" y="0" width="450" height="450">
+      <HourHand resource="hour" x="205" y="110" width="40" height="143"
+          pivotX="0.5" pivotY="0.804">
+        <Variant mode="AMBIENT" target="alpha" value="170" />
+      </HourHand>
+      <MinuteHand resource="minute" x="205" y="54" width="40" height="199"
+          pivotX="0.5" pivotY="0.859">
+        <Variant mode="AMBIENT" target="alpha" value="170" />
+      </MinuteHand>
+    </AnalogClock>
+
+    <!-- Optional red seconds hand (Customize on the watch). -->
+    <BooleanConfiguration id="show_seconds">
+      <BooleanOption id="TRUE">
+        <AnalogClock x="0" y="0" width="450" height="450">
+          <SecondHand resource="second" x="205" y="38" width="40" height="234"
+              pivotX="0.5" pivotY="0.799">
+            <Variant mode="AMBIENT" target="alpha" value="0" />
+            <Sweep frequency="15" />
+          </SecondHand>
+        </AnalogClock>
+      </BooleanOption>
+      <BooleanOption id="FALSE" />
+    </BooleanConfiguration>
+
+    <PartImage x="213" y="213" width="24" height="24">
+      <Image resource="cap" />
+    </PartImage>
+
+    <!-- Glass reflection. -->
+    <Group name="gloss" x="0" y="0" width="450" height="450">
+      <Variant mode="AMBIENT" target="alpha" value="0" />
+      <PartImage x="0" y="0" width="450" height="450">
+        <Image resource="gloss" />
+      </PartImage>
+    </Group>
+
+  </Scene>
+</WatchFace>

@@ -1,0 +1,41 @@
+name: Build watch faces
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: gradle
+
+      - name: Accept Android SDK licences
+        run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+
+      - name: Build the three watch face APKs
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon assembleDebug
+
+      - name: Name the APKs after the version
+        id: ver
+        run: |
+          VERSION=$(grep -oP 'versionName = "\K[^"]+' midnightsatin/build.gradle.kts)
+          mkdir -p dist
+          cp midnightsatin/build/outputs/apk/debug/midnightsatin-debug.apk "dist/Midnight_Satin_${VERSION}.apk"
+          cp bluesatin/build/outputs/apk/debug/bluesatin-debug.apk "dist/Blue_Satin_${VERSION}.apk"
+          cp skeletonblack/build/outputs/apk/debug/skeletonblack-debug.apk "dist/Skeleton_Black_${VERSION}.apk"
+          echo "name=Watch_Faces_${VERSION}" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.ver.outputs.name }}
+          path: dist/*.apk
