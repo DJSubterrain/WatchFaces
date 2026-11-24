@@ -9,7 +9,7 @@ Four Wear OS watch faces in the Watch Face Format (no app code, drawn by the wat
 | Skeleton Black | satin ring around an open dial showing the movement, silver hands |
 | Open Heart | navy satin dial with a large open-heart window onto the balance wheel, silver hands |
 
-All four show heart rate at 9 o'clock and battery level at 3 o'clock in date-style windows, and a balance wheel that swings back and forth once a second. Under Customize on the watch you can turn the seconds hand on/off and show or hide the metal frames (off by default).
+All four show heart rate at 9 o'clock and battery level at 3 o'clock in date-style windows, and a balance wheel that swings back and forth once a second. Under Customize on the watch you can turn the seconds hand on/off and show or hide the metal case ring and window frames (off by default, so the dial fills the screen).
 
 Each face is its own app because the format allows one face per app. Pushing to `main` builds all four APKs (GitHub Actions, "Build watch faces").
 
@@ -20,3 +20,7 @@ First build. Written from the Watch Face Format reference and not yet tried on a
 ## 0.2.0
 
 New Open Heart face; wheel swings once per second (was 4 Hz); metal frames around the windows and movement aperture are now optional and off by default. Not yet tried on a watch.
+
+## 0.2.1
+
+The outer metal ring (the "case") is now part of the optional frames and is off by default, so the dial runs to the edge of the screen and the watch's own body shows instead.

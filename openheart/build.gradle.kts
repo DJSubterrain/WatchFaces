@@ -10,8 +10,8 @@ android {
         applicationId = "com.djsubterrain.watchface.openheart"
         minSdk = 33
         targetSdk = 34
-        versionCode = 2
-        versionName = "0.2.0"
+        versionCode = 3
+        versionName = "0.2.1"
     }
 
     // One fixed key for all the faces, so each new build installs over the last one.
