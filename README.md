@@ -36,3 +36,7 @@ Hour markers and the minute track moved out to the screen edge now that the meta
 ## 0.2.4
 
 Satin dial scaled up ~6% inside the round screen so the brighter satin reaches the rim (the Spigen case covers the outer edge of the display).
+
+## 0.2.5
+
+Hour markers and minute track moved right out to the visible edge (just inside the Spigen Thin Fit 360 case rim).
