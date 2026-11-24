@@ -10,8 +10,8 @@ android {
         applicationId = "com.djsubterrain.watchface.skeletonblack"
         minSdk = 33
         targetSdk = 34
-        versionCode = 5
-        versionName = "0.2.3"
+        versionCode = 6
+        versionName = "0.2.4"
     }
 
     // One fixed key for all the faces, so each new build installs over the last one.

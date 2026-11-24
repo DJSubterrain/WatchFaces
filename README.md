@@ -32,3 +32,7 @@ The metal case ring and window frames are removed from all faces (no switch). Th
 ## 0.2.3
 
 Hour markers and the minute track moved out to the screen edge now that the metal ring is gone.
+
+## 0.2.4
+
+Satin dial scaled up ~6% inside the round screen so the brighter satin reaches the rim (the Spigen case covers the outer edge of the display).
